@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.Python
+.venv/
+venv/
+*.egg-info/
+
+# Build artifacts
+build/
+dist/
+
+# Captured screenshots — keep templates (resources/) and README images (docs/)
+*.png
+!resources/*.png
+!docs/*.png
+
+# macOS
+.DS_Store
+*.dmg
+
+# Editors
+.idea/
+.vscode/
+*.swp

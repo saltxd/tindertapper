@@ -1,0 +1,11 @@
+# macOS automation (PyObjC) — window capture and synthetic clicks
+pyobjc-framework-Quartz>=10.0
+pyobjc-framework-Cocoa>=10.0
+
+# Image processing — template matching
+opencv-python>=4.8.0
+numpy>=1.24.0
+pillow>=10.0.0
+
+# Building the optional .app bundle needs PyInstaller (`./build.sh` installs it
+# on demand, so it's intentionally left out of this file).
