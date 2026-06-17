@@ -11,10 +11,42 @@ else.
 ![What TinderTapper looks for](docs/detection.png)
 
 > [!WARNING]
-> **Use at your own risk.** Automating Tinder violates its
-> [Terms of Service](https://policies.tinder.com/terms) and can get your
-> account banned. This project is for education and personal experimentation
-> with screen automation. You are responsible for how you use it. No warranty.
+> **Use at your own risk — you can still get banned.**
+> Because every tap goes through a *real iPhone* over iPhone Mirroring (no
+> jailbreak, no modified app, no API), Tinder can't tell *how* the tap was
+> made — which sidesteps the checks that catch most bots. That is **not** the
+> same as undetectable. Tinder's anti-bot systems flag *behaviour* — swipe
+> speed, how regular your timing is, like/pass ratio, marathon sessions — not
+> just the input method. Bot-shaped activity gets accounts **shadowbanned**
+> (your likes quietly stop counting) or banned regardless of how the taps are
+> generated. Keep sessions small and human-paced. Automating Tinder also
+> violates its [Terms of Service](https://policies.tinder.com/terms). For
+> education and personal experimentation. No warranty.
+
+---
+
+## Quick Start (no coding needed)
+
+You don't need to know how to code. On a Mac:
+
+1. **Download it.** Click the green **`<> Code`** button near the top of this
+   page → **Download ZIP**, then double-click the ZIP to unzip. *(Or `git clone`
+   if you know how.)*
+2. **Install.** Open the unzipped folder and double-click **`install.command`**.
+   It sets everything up (1–2 minutes) and tells you when it's done.
+   - The first time, macOS may say *"cannot verify the developer"* — that's
+     normal for any downloaded script. **Right-click the file → Open → Open.**
+3. **Grant two one-time permissions** so it can see the screen and tap for you:
+   - **System Settings → Privacy & Security → Screen Recording** → turn on **Terminal**
+   - **System Settings → Privacy & Security → Accessibility** → turn on **Terminal**
+   - Quit and reopen Terminal afterward.
+4. **Open iPhone Mirroring** and launch **Tinder** on the main swipe screen.
+5. **Run it.** Double-click **`Start TinderTapper.command`**, type how many
+   profiles you want (or just press Enter for 200), and let it go. Press
+   **Ctrl-C** or close the window to stop anytime.
+
+The launcher checks your setup first and tells you exactly what to fix if a
+permission or the iPhone Mirroring window is missing.
 
 ---
 
@@ -25,7 +57,10 @@ else.
 - **Python 3.10+**.
 - Permissions: **Screen Recording** and **Accessibility** (see below).
 
-## Install
+## Manual install (developers)
+
+Prefer the command line? The double-click `install.command` above just automates
+these steps:
 
 ```bash
 git clone https://github.com/saltxd/tindertapper.git
