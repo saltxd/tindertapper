@@ -94,6 +94,20 @@ if __name__ == '__main__':
     if max_total > 0:
         max_likes = max_total
 
+    # Guard the silent no-op footgun: the loop is gated on `sent < max_likes`,
+    # so with --max-likes 0 (and no --max-total to lift it) it never runs and
+    # exits with a bare "Done! Sent 0 likes". Unlike --max-total, 0 here is NOT
+    # "no cap" — it's "zero likes". Say so loudly instead of failing silently.
+    if max_likes <= 0 and max_total <= 0:
+        print(
+            f"WARNING: --max-likes {max_likes} means ZERO likes will be sent — "
+            "nothing will happen. (Unlike --max-total, 0 is not 'unlimited' here.)"
+        )
+        print(
+            "         For a hands-off run use --max-total N (e.g. --max-total 200), "
+            "or --max-total 0 for no cap."
+        )
+
     print(f"Like template: {like_tpl['w']}x{like_tpl['h']} -> {like_tpl['cw']}x{like_tpl['ch']}")
     print(f"Maybe later: {'loaded' if maybe_later_tpl else 'MISSING'}")
     print(f"Dismiss X: {'loaded' if dismiss_x_tpl else 'MISSING'}")
